@@ -78,6 +78,19 @@ section{
   transform: translateY(0) scale(1);
  }
 
+ .active-sect{
+  display: block;
+  animation: scaleAnim 1s ease-in-out;
+  @keyframes scaleAnim {
+    0%{
+      transform: translateY(-100%) scaleY(0)
+    }
+    100%{
+      transform: translateY(0%) scaleY(1)
+    }
+  }
+ }
+
  .controlls{
   position: fixed;
   z-index: 10;
@@ -118,3 +131,116 @@ section{
     }
   }
  }
+
+.header-content{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: 100%;
+
+  .left-header{
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .image{
+      height: 80%;
+      width: 68%;
+      margin-left: 4rem;
+
+      img{
+        border-radius: 5%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.4s ease-in-out;
+        filter: grayscale(100%);
+        &:hover{
+          filter: grayscale(0);
+        }
+      }
+    }
+  }
+
+  .right-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 5%;
+
+    .name{
+      font-size: 3rem;
+      span{
+        color: $color-secondary;
+      }
+    }
+
+    p{
+      margin: 1rem 0;
+      line-height: 2rem;
+    }
+  }
+}
+
+.btn-container{
+  display: flex;
+  align-self: flex-start;
+}
+
+.main-btn{
+  border: 1px solid $color-secondary;
+  border-radius: 30px;
+  color: inherit;
+  font-weight: 600;
+  position: relative;
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+  overflow: hidden;
+  transition: 0.4s ease-in-out;
+  &::before{
+    content:'';
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateX(100%);
+    transition: all 0.4s ease-in-out;
+    z-index: -1;
+  }
+  &:hover{
+    scale: 1.1;
+    transition: all 0.4s ease-in-out;
+    &::before{
+      width: 100%;
+      height: 100%;
+      background-color: $color-secondary;
+      transform: translateX(0);
+      transition: all 0.4s ease-in-out;
+    }
+  }
+
+  .btn-text{
+    padding: 0 2rem;
+  }
+
+  .btn-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-secondary;
+    border-radius: 50%;
+    padding: 1rem;
+  }
+}
+
+.main-title{
+  text-align: center;
+  h2{
+    position: relative;
+    text-transform: uppercase;
+    font-size: 4rem;
+    font-weight: 700;
+    span{
+      color: $color-secondary;
+    }
+  }
+}
