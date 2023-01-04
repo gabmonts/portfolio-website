@@ -1,17 +1,12 @@
-const sections = document.querySelectorAll('.section')
-const sectBtns = document.querySelectorAll('.controlls')
 const sectBtn = document.querySelectorAll('.control')
-const allSections = document.querySelectorAll('.main-content')
 
 function pageTransitions(){
-  for(let i = 0; i < sectBtn.length; i++){
-    sectBtn[i].addEventListener('click', function(){
+    sectBtn.forEach(button => {
+      button.addEventListener('click', function() {
 
-      // Removing "active" on old button
+      // Buttons
       let currentBtn = document.querySelector('.active-btn');
       currentBtn.classList.remove('active-btn')
-
-      // Adding "active" on new button
       this.classList.add('active-btn');
 
       // Removing "active" on old section
@@ -24,14 +19,18 @@ function pageTransitions(){
       newSection.classList.add('active-sect')
 
     })
-  }
-
-  // Toggle theme
-  const  themeBtn = document.querySelector('.theme-btn')
-  themeBtn.addEventListener('click', () =>{
-    let element = document.body
-    element.classList.toggle('light-mode')
   })
 }
 
+  // Toggle theme
+  const  themeBtn = document.querySelector('.theme-btn')
+
+  function toggleLight(){
+    themeBtn.addEventListener('click', () =>{
+      let element = document.body
+      element.classList.toggle('light-mode')
+    })
+  }
+
 pageTransitions()
+toggleLight()
