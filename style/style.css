@@ -607,6 +607,14 @@ section {
   .about-container .left-about p {
     padding-left: 0;
   }
+  .contact-content-con .left-contact {
+    margin-left: 0;
+    margin-top: 2.5rem;
+    font-size: smaller;
+  }
+  .contact-content-con .left-contact h4 {
+    font-size: 1.5rem;
+  }
 }
 @media screen and (max-width: 900px) {
   header {
